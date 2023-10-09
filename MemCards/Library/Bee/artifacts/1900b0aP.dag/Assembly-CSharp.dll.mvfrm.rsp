@@ -1,8 +1,18 @@
+Library\Bee\artifacts\mvdfrm\Unity.Burst.ref.dll_14316E70964BB953.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Collections.ref.dll_914F3C16C2C534D8.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Mathematics.ref.dll_14D1A32168A0AD59.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Netcode.Components.ref.dll_5A3B7C8B7A362DFD.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Netcode.Runtime.ref.dll_90BD8F2F0A0A5847.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Networking.Transport.ref.dll_402129430A0ABF72.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Services.Authentication.ref.dll_9531D9BB8FB3E42B.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Services.Core.Analytics.ref.dll_D88AC28E7AE24D0A.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Services.Core.Environments.ref.dll_29C0C4FBB515A292.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Services.Core.ref.dll_8733AE466239FA82.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Services.Lobbies.ref.dll_2EE36D56F75745D7.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Services.QoS.ref.dll_A1E9091420511448.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Services.Relay.ref.dll_FE5B7957B91F9B54.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.TextMeshPro.ref.dll_B085F143991618E6.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Timeline.ref.dll_54050F91DBE64E14.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Core.ref.dll_27ACA245D8399F39.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Flow.ref.dll_6EBD829C5A4313E8.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.State.ref.dll_F0190167D28F2F4D.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.UI.ref.dll_FAE6DBEA21006BE5.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.AccessibilityModule.dll_B8CF63339CA04457.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.AIModule.dll_73BC86DD9261BC73.mvfrm
@@ -71,4 +81,4 @@ Library\Bee\artifacts\mvdfrm\UnityEngine.VirtualTexturingModule.dll_2D1D797446FC
 Library\Bee\artifacts\mvdfrm\UnityEngine.VRModule.dll_C2024B9090634797.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.WindModule.dll_727BF3CF5F2B6193.mvfrm
 Library\Bee\artifacts\mvdfrm\UnityEngine.XRModule.dll_F4C10E95199D94F5.mvfrm
-Library\Bee\artifacts\mvdfrm\Unity.VisualScripting.Antlr3.Runtime.dll_6B5854E2366B9BC5.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.Collections.LowLevel.ILSupport.dll_2E40CE80E145E521.mvfrm
