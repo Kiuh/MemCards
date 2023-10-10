@@ -22,19 +22,28 @@ public class LobbyRecord : MonoBehaviour
         lobbyName.text = lobby.Name;
         joinLobby.onClick.AddListener(async () =>
         {
-            Lobby joinedLobby = await LobbyService.Instance.JoinLobbyByIdAsync(lobby.Id);
-            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(
-                joinedLobby.Data["RelayCode"].Value
-            );
-            SubNetworkManager.Singleton.JoinedLobby = joinedLobby;
+            LoadingTool.Singleton.ShowLoading("Joining lobby...");
+            try
+            {
+                Lobby joinedLobby = await LobbyService.Instance.JoinLobbyByIdAsync(lobby.Id);
+                JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(
+                    joinedLobby.Data["RelayCode"].Value
+                );
+                SubNetworkManager.Singleton.JoinedLobby = joinedLobby;
 
-            RelayServerData relayServerData = new(joinAllocation, "dtls");
-            NetworkManager.Singleton
-                .GetComponent<UnityTransport>()
-                .SetRelayServerData(relayServerData);
+                RelayServerData relayServerData = new(joinAllocation, "dtls");
+                NetworkManager.Singleton
+                    .GetComponent<UnityTransport>()
+                    .SetRelayServerData(relayServerData);
 
-            _ = NetworkManager.Singleton.StartClient();
-            Destroy(LobbyPinger.Singleton.gameObject);
+                _ = NetworkManager.Singleton.StartClient();
+                Destroy(LobbyPinger.Singleton.gameObject);
+            }
+            catch (LobbyServiceException ex)
+            {
+                Debug.LogError(ex.Message);
+            }
+            LoadingTool.Singleton.HideLoading();
         });
     }
 }

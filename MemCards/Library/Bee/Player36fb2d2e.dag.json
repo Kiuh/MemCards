@@ -520,37 +520,37 @@
         "D:/Programs/Unity/2022.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.XRModule.dll",
         "D:/Programs/Unity/2022.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Burst.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Internal.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Environments.Internal.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Device.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Threading.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Networking.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Networking.Transport.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.QoS.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Telemetry.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Netcode.Components.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Timeline.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Scheduler.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Environments.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Relay.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Configuration.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Collections.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Netcode.Runtime.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Authentication.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Lobbies.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Mathematics.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/unity-websocket-sharp.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Analytics.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Wire.Internal.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Burst.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Internal.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Device.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Threading.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.QoS.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Telemetry.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Timeline.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Authentication.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Lobbies.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Mathematics.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Registration.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.services.wire@1.2.0/Plugins/websocket-sharp.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.burst@1.8.7/Unity.Burst.Unsafe.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/AOT/Newtonsoft.Json.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.services.wire@1.2.0/Plugins/websocket-sharp.dll",
         "D:/Programs/Unity/2022.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/Facades/System.Runtime.dll",
         "D:/Programs/Unity/2022.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/Facades/netstandard.dll",
         "D:/Programs/Unity/2022.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/Mono.Security.dll",
@@ -1477,186 +1477,6 @@
       "DebugActionIndex": 92
     },
     {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Environments.Internal.dll",
-      "DisplayName": "Copying Unity.Services.Core.Environments.Internal.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Environments.Internal.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Services.Core.Environments.Internal.dll"
-      ],
-      "DebugActionIndex": 93
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.dll",
-      "DisplayName": "Copying Unity.Services.Core.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Services.Core.dll"
-      ],
-      "DebugActionIndex": 94
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Networking.dll",
-      "DisplayName": "Copying Unity.Services.Core.Networking.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Networking.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Services.Core.Networking.dll"
-      ],
-      "DebugActionIndex": 95
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Networking.Transport.dll",
-      "DisplayName": "Copying Unity.Networking.Transport.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Networking.Transport.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Networking.Transport.dll"
-      ],
-      "DebugActionIndex": 96
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Netcode.Components.dll",
-      "DisplayName": "Copying Unity.Netcode.Components.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Netcode.Components.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Netcode.Components.dll"
-      ],
-      "DebugActionIndex": 97
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Scheduler.dll",
-      "DisplayName": "Copying Unity.Services.Core.Scheduler.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Scheduler.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Services.Core.Scheduler.dll"
-      ],
-      "DebugActionIndex": 98
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Environments.dll",
-      "DisplayName": "Copying Unity.Services.Core.Environments.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Environments.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Services.Core.Environments.dll"
-      ],
-      "DebugActionIndex": 99
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Relay.dll",
-      "DisplayName": "Copying Unity.Services.Relay.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Relay.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Services.Relay.dll"
-      ],
-      "DebugActionIndex": 100
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Configuration.dll",
-      "DisplayName": "Copying Unity.Services.Core.Configuration.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Configuration.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Services.Core.Configuration.dll"
-      ],
-      "DebugActionIndex": 101
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Collections.dll",
-      "DisplayName": "Copying Unity.Collections.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Collections.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Collections.dll"
-      ],
-      "DebugActionIndex": 102
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Netcode.Runtime.dll",
-      "DisplayName": "Copying Unity.Netcode.Runtime.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Netcode.Runtime.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Netcode.Runtime.dll"
-      ],
-      "DebugActionIndex": 103
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/unity-websocket-sharp.dll",
-      "DisplayName": "Copying unity-websocket-sharp.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/unity-websocket-sharp.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/unity-websocket-sharp.dll"
-      ],
-      "DebugActionIndex": 104
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.TextMeshPro.dll",
-      "DisplayName": "Copying Unity.TextMeshPro.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.TextMeshPro.dll"
-      ],
-      "DebugActionIndex": 105
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Analytics.dll",
-      "DisplayName": "Copying Unity.Services.Core.Analytics.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Analytics.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Services.Core.Analytics.dll"
-      ],
-      "DebugActionIndex": 106
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Wire.Internal.dll",
-      "DisplayName": "Copying Unity.Services.Wire.Internal.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Wire.Internal.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Services.Wire.Internal.dll"
-      ],
-      "DebugActionIndex": 107
-    },
-    {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Burst.dll",
       "DisplayName": "Copying Unity.Burst.dll",
       "ActionType": "CopyFiles",
@@ -1666,7 +1486,7 @@
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Burst.dll"
       ],
-      "DebugActionIndex": 108
+      "DebugActionIndex": 93
     },
     {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Internal.dll",
@@ -1678,7 +1498,19 @@
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Services.Core.Internal.dll"
       ],
-      "DebugActionIndex": 109
+      "DebugActionIndex": 94
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Environments.Internal.dll",
+      "DisplayName": "Copying Unity.Services.Core.Environments.Internal.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Environments.Internal.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Services.Core.Environments.Internal.dll"
+      ],
+      "DebugActionIndex": 95
     },
     {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Device.dll",
@@ -1690,7 +1522,19 @@
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Services.Core.Device.dll"
       ],
-      "DebugActionIndex": 110
+      "DebugActionIndex": 96
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.dll",
+      "DisplayName": "Copying Unity.Services.Core.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Services.Core.dll"
+      ],
+      "DebugActionIndex": 97
     },
     {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Threading.dll",
@@ -1702,19 +1546,31 @@
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Services.Core.Threading.dll"
       ],
-      "DebugActionIndex": 111
+      "DebugActionIndex": 98
     },
     {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/UnityEngine.UI.dll",
-      "DisplayName": "Copying UnityEngine.UI.dll",
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Networking.dll",
+      "DisplayName": "Copying Unity.Services.Core.Networking.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll"
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Networking.dll"
       ],
       "Outputs": [
-        "Builds/MemCards_Data/Managed/UnityEngine.UI.dll"
+        "Builds/MemCards_Data/Managed/Unity.Services.Core.Networking.dll"
       ],
-      "DebugActionIndex": 112
+      "DebugActionIndex": 99
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Networking.Transport.dll",
+      "DisplayName": "Copying Unity.Networking.Transport.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Networking.Transport.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Networking.Transport.dll"
+      ],
+      "DebugActionIndex": 100
     },
     {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.QoS.dll",
@@ -1726,7 +1582,7 @@
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Services.QoS.dll"
       ],
-      "DebugActionIndex": 113
+      "DebugActionIndex": 101
     },
     {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Telemetry.dll",
@@ -1738,7 +1594,31 @@
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Services.Core.Telemetry.dll"
       ],
-      "DebugActionIndex": 114
+      "DebugActionIndex": 102
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/UnityEngine.UI.dll",
+      "DisplayName": "Copying UnityEngine.UI.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/UnityEngine.UI.dll"
+      ],
+      "DebugActionIndex": 103
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Netcode.Components.dll",
+      "DisplayName": "Copying Unity.Netcode.Components.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Netcode.Components.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Netcode.Components.dll"
+      ],
+      "DebugActionIndex": 104
     },
     {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Timeline.dll",
@@ -1750,7 +1630,79 @@
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Timeline.dll"
       ],
-      "DebugActionIndex": 115
+      "DebugActionIndex": 105
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Scheduler.dll",
+      "DisplayName": "Copying Unity.Services.Core.Scheduler.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Scheduler.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Services.Core.Scheduler.dll"
+      ],
+      "DebugActionIndex": 106
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Environments.dll",
+      "DisplayName": "Copying Unity.Services.Core.Environments.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Environments.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Services.Core.Environments.dll"
+      ],
+      "DebugActionIndex": 107
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Relay.dll",
+      "DisplayName": "Copying Unity.Services.Relay.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Relay.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Services.Relay.dll"
+      ],
+      "DebugActionIndex": 108
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Configuration.dll",
+      "DisplayName": "Copying Unity.Services.Core.Configuration.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Configuration.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Services.Core.Configuration.dll"
+      ],
+      "DebugActionIndex": 109
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Collections.dll",
+      "DisplayName": "Copying Unity.Collections.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Collections.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Collections.dll"
+      ],
+      "DebugActionIndex": 110
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Netcode.Runtime.dll",
+      "DisplayName": "Copying Unity.Netcode.Runtime.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Netcode.Runtime.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Netcode.Runtime.dll"
+      ],
+      "DebugActionIndex": 111
     },
     {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Authentication.dll",
@@ -1762,7 +1714,7 @@
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Services.Authentication.dll"
       ],
-      "DebugActionIndex": 116
+      "DebugActionIndex": 112
     },
     {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Lobbies.dll",
@@ -1774,7 +1726,7 @@
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Services.Lobbies.dll"
       ],
-      "DebugActionIndex": 117
+      "DebugActionIndex": 113
     },
     {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Mathematics.dll",
@@ -1785,6 +1737,54 @@
       ],
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Mathematics.dll"
+      ],
+      "DebugActionIndex": 114
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/unity-websocket-sharp.dll",
+      "DisplayName": "Copying unity-websocket-sharp.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/unity-websocket-sharp.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/unity-websocket-sharp.dll"
+      ],
+      "DebugActionIndex": 115
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.TextMeshPro.dll",
+      "DisplayName": "Copying Unity.TextMeshPro.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.TextMeshPro.dll"
+      ],
+      "DebugActionIndex": 116
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Core.Analytics.dll",
+      "DisplayName": "Copying Unity.Services.Core.Analytics.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Analytics.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Services.Core.Analytics.dll"
+      ],
+      "DebugActionIndex": 117
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Services.Wire.Internal.dll",
+      "DisplayName": "Copying Unity.Services.Wire.Internal.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Wire.Internal.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Services.Wire.Internal.dll"
       ],
       "DebugActionIndex": 118
     },
@@ -1801,28 +1801,16 @@
       "DebugActionIndex": 119
     },
     {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Burst.Unsafe.dll",
-      "DisplayName": "Copying Unity.Burst.Unsafe.dll",
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/websocket-sharp.dll",
+      "DisplayName": "Copying websocket-sharp.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.burst@1.8.7/Unity.Burst.Unsafe.dll"
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.services.wire@1.2.0/Plugins/websocket-sharp.dll"
       ],
       "Outputs": [
-        "Builds/MemCards_Data/Managed/Unity.Burst.Unsafe.dll"
+        "Builds/MemCards_Data/Managed/websocket-sharp.dll"
       ],
       "DebugActionIndex": 120
-    },
-    {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Newtonsoft.Json.dll",
-      "DisplayName": "Copying Newtonsoft.Json.dll",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/AOT/Newtonsoft.Json.dll"
-      ],
-      "Outputs": [
-        "Builds/MemCards_Data/Managed/Newtonsoft.Json.dll"
-      ],
-      "DebugActionIndex": 121
     },
     {
       "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Collections.LowLevel.ILSupport.dll",
@@ -1834,17 +1822,29 @@
       "Outputs": [
         "Builds/MemCards_Data/Managed/Unity.Collections.LowLevel.ILSupport.dll"
       ],
+      "DebugActionIndex": 121
+    },
+    {
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Unity.Burst.Unsafe.dll",
+      "DisplayName": "Copying Unity.Burst.Unsafe.dll",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.burst@1.8.7/Unity.Burst.Unsafe.dll"
+      ],
+      "Outputs": [
+        "Builds/MemCards_Data/Managed/Unity.Burst.Unsafe.dll"
+      ],
       "DebugActionIndex": 122
     },
     {
-      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/websocket-sharp.dll",
-      "DisplayName": "Copying websocket-sharp.dll",
+      "Annotation": "CopyFiles Builds/MemCards_Data/Managed/Newtonsoft.Json.dll",
+      "DisplayName": "Copying Newtonsoft.Json.dll",
       "ActionType": "CopyFiles",
       "Inputs": [
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.services.wire@1.2.0/Plugins/websocket-sharp.dll"
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/AOT/Newtonsoft.Json.dll"
       ],
       "Outputs": [
-        "Builds/MemCards_Data/Managed/websocket-sharp.dll"
+        "Builds/MemCards_Data/Managed/Newtonsoft.Json.dll"
       ],
       "DebugActionIndex": 123
     },
@@ -2190,37 +2190,37 @@
         "D:/Programs/Unity/2022.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.XRModule.dll",
         "D:/Programs/Unity/2022.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/Variations/mono/Managed/UnityEngine.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Assembly-CSharp.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Burst.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Internal.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Environments.Internal.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Device.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Threading.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Networking.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Networking.Transport.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.QoS.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Telemetry.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Netcode.Components.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Timeline.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Scheduler.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Environments.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Relay.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Configuration.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Collections.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Netcode.Runtime.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Authentication.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Lobbies.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Mathematics.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/unity-websocket-sharp.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.TextMeshPro.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Analytics.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Wire.Internal.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Burst.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Internal.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Device.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Threading.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/UnityEngine.UI.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.QoS.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Telemetry.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Timeline.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Authentication.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Lobbies.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Mathematics.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/Bee/PlayerScriptAssemblies/Unity.Services.Core.Registration.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.services.wire@1.2.0/Plugins/websocket-sharp.dll",
+        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.burst@1.8.7/Unity.Burst.Unsafe.dll",
         "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/AOT/Newtonsoft.Json.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.collections@1.2.4/Unity.Collections.LowLevel.ILSupport/Unity.Collections.LowLevel.ILSupport.dll",
-        "C:/Users/kyltu/Desktop/GitHub/MemCards/MemCards/Library/PackageCache/com.unity.services.wire@1.2.0/Plugins/websocket-sharp.dll",
         "D:/Programs/Unity/2022.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/Facades/System.Runtime.dll",
         "D:/Programs/Unity/2022.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/Facades/netstandard.dll",
         "D:/Programs/Unity/2022.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32/Mono.Security.dll",

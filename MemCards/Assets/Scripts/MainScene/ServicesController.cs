@@ -35,6 +35,7 @@ public class ServicesController : MonoBehaviour
     {
         try
         {
+            LoadingTool.Singleton.ShowLoading("Creating lobby...");
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(2);
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
@@ -59,6 +60,7 @@ public class ServicesController : MonoBehaviour
 
             _ = NetworkManager.Singleton.StartHost();
             _ = NetworkManager.Singleton.SceneManager.LoadScene("Lobby", LoadSceneMode.Single);
+            LoadingTool.Singleton.HideLoading();
         }
         catch (LobbyServiceException ex)
         {
