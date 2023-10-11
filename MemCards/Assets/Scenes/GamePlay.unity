@@ -507,6 +507,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+<<<<<<< Updated upstream
 --- !u!1001 &832320787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -629,6 +630,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2576c54c5dcd3f1439aa350ae4471375, type: 3}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +734,7 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
+<<<<<<< Updated upstream
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
@@ -1065,6 +1069,10 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9278abbc97f45d44b1fcb946f66efe3, type: 3}
 --- !u!1001 &1839925923
+=======
+  m_CustomSkybox: {fileID: 2100000, guid: e1c73270349e64a1a8563b6a60d21a89, type: 2}
+--- !u!1001 &1934490497
+>>>>>>> Stashed changes
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1074,6 +1082,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 9128b4ab534f8224e8a939186103df0d, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< Updated upstream
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9128b4ab534f8224e8a939186103df0d, type: 3}
@@ -1083,6 +1092,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9128b4ab534f8224e8a939186103df0d, type: 3}
       propertyPath: m_LocalPosition.z
       value: 5
+=======
+      value: 3.35
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9128b4ab534f8224e8a939186103df0d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9128b4ab534f8224e8a939186103df0d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.761
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9128b4ab534f8224e8a939186103df0d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1121,6 +1141,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9128b4ab534f8224e8a939186103df0d, type: 3}
+<<<<<<< Updated upstream
 --- !u!1001 &1867491545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1186,12 +1207,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9278abbc97f45d44b1fcb946f66efe3, type: 3}
+=======
+>>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
   - {fileID: 705507995}
+<<<<<<< Updated upstream
   - {fileID: 1350284055}
   - {fileID: 1867491545}
   - {fileID: 1797637316}
@@ -1203,3 +1227,8 @@ SceneRoots:
   - {fileID: 279908965}
   - {fileID: 1480458768}
   - {fileID: 1839925923}
+=======
+  - {fileID: 307035707}
+  - {fileID: 63888107}
+  - {fileID: 1934490497}
+>>>>>>> Stashed changes
