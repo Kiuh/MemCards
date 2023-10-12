@@ -34,7 +34,7 @@ public class Player : NetworkBehaviour
     private NetworkVariable<float> shieldDecreasing;
     private bool lockInteraction = true;
 
-    public void SetInteraction(bool value)
+    public void SetLockInteraction(bool value)
     {
         lockInteraction = value;
     }
@@ -56,11 +56,21 @@ public class Player : NetworkBehaviour
         }
         else
         {
-            healthPoints.Value = MaxHealthPoints;
-            shieldPoints.Value = 0;
+            PreparePlayerToGame();
             FindObjectOfType<PlayerView>().Player = this;
         }
         base.OnNetworkSpawn();
+    }
+
+    public void PreparePlayerToGame()
+    {
+        healthPoints.Value = MaxHealthPoints;
+        shieldPoints.Value = 0;
+    }
+
+    public void Suicide()
+    {
+        healthPoints.Value = 0;
     }
 
     private void Update()
@@ -77,8 +87,6 @@ public class Player : NetworkBehaviour
             }
             if (!lockInteraction)
             {
-                // Interact
-                Debug.Log("Interaction!");
                 if (healthPoints.Value <= 0)
                 {
                     lockInteraction = true;

@@ -35,6 +35,11 @@ public class PlayerView : MonoBehaviour
         set => player = value;
     }
 
+    public void CallPlayerSuicide()
+    {
+        Player.Suicide();
+    }
+
     private void Update()
     {
         if (player != null)

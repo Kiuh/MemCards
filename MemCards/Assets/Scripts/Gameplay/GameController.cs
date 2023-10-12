@@ -15,7 +15,7 @@ public class GameController : NetworkBehaviour
 
     [SerializeField]
     private TMP_Text readyCounterText;
-    private NetworkVariable<int> readyCounter = new(-1);
+    private NetworkVariable<int> readyCounter = new(4);
     private List<string> readyStrings = new() { "Prepare!", "Ready?", "GO!" };
     private float readyDeltaTime = 1f;
     private float timer = 0f;
@@ -62,6 +62,7 @@ public class GameController : NetworkBehaviour
                     if (readyCounter.Value == 3)
                     {
                         StartGameClientRpc();
+                        readyCounter.Value++;
                     }
                 }
             }
@@ -94,8 +95,9 @@ public class GameController : NetworkBehaviour
         FindObjectsOfType<Player>()
             .Where(x => x.IsLocalPlayer)
             .ToList()
-            .ForEach(x => x.SetInteraction(false));
+            .ForEach(x => x.SetLockInteraction(true));
         repeatView.gameObject.SetActive(true);
+        repeatView.Ready.interactable = true;
         repeatView.WinLabel.text = winner + " Win";
     }
 
@@ -127,6 +129,11 @@ public class GameController : NetworkBehaviour
         }
         if (allClientsReady)
         {
+            allClientsReady = false;
+            foreach (ulong key in playerRestartReadyDictionary.Keys.ToList())
+            {
+                playerRestartReadyDictionary[key] = false;
+            }
             StartCountDownServerRpc();
         }
     }
@@ -147,6 +154,7 @@ public class GameController : NetworkBehaviour
         readyCounterText.gameObject.SetActive(true);
         Player player = FindObjectsOfType<Player>().Where(x => x.IsLocalPlayer).First();
         player.ResetCamera();
+        player.PreparePlayerToGame();
     }
 
     [ClientRpc]
@@ -156,7 +164,7 @@ public class GameController : NetworkBehaviour
         FindObjectsOfType<Player>()
             .Where(x => x.IsLocalPlayer)
             .ToList()
-            .ForEach(x => x.SetInteraction(false));
+            .ForEach(x => x.SetLockInteraction(false));
         // TODO
     }
 }
