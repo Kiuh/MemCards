@@ -1,10 +1,18 @@
+using Cinemachine;
 using Unity.Netcode;
+using UnityEngine;
 
 public class Player : NetworkBehaviour
 {
-    // Start is called before the first frame update
-    private void Start() { }
+    [SerializeField]
+    private CinemachineVirtualCamera virtualCamera;
 
-    // Update is called once per frame
-    private void Update() { }
+    public override void OnNetworkSpawn()
+    {
+        if (!IsLocalPlayer)
+        {
+            virtualCamera.gameObject.SetActive(false);
+        }
+        base.OnNetworkSpawn();
+    }
 }

@@ -43,7 +43,10 @@ public class LobbyRecord : MonoBehaviour
             {
                 Debug.LogError(ex.Message);
             }
-            LoadingTool.Singleton.HideLoading();
+            finally
+            {
+                LoadingTool.Singleton.HideLoading();
+            }
         });
     }
 }

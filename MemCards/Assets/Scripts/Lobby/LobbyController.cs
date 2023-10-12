@@ -22,7 +22,11 @@ public class LobbyController : NetworkBehaviour
     [SerializeField]
     private TMP_Text mainText;
 
+    [SerializeField]
+    private GameObject beginLevel;
+
     private bool isLocalPlayerReady = false;
+    private bool allClientsReady = false;
     private Dictionary<ulong, bool> playerReadyDictionary = new();
 
     private void Awake()
@@ -45,7 +49,7 @@ public class LobbyController : NetworkBehaviour
         startGame.onClick.AddListener(() =>
         {
             Destroy(LobbyPinger.Singleton.gameObject);
-            _ = NetworkManager.Singleton.SceneManager.LoadScene("GamePlay", LoadSceneMode.Single);
+            StartGameServerRpc();
         });
     }
 
@@ -88,7 +92,17 @@ public class LobbyController : NetworkBehaviour
         mainText.text = text;
     }
 
-    private bool allClientsReady = false;
+    [ServerRpc(RequireOwnership = false)]
+    private void StartGameServerRpc()
+    {
+        StartGameClientRpc();
+    }
+
+    [ClientRpc]
+    private void StartGameClientRpc()
+    {
+        beginLevel.SetActive(false);
+    }
 
     [ServerRpc(RequireOwnership = false)]
     private void SetPlayerReadyServerRpc(bool isReady, ServerRpcParams rpcParams = default)

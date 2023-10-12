@@ -59,12 +59,15 @@ public class ServicesController : MonoBehaviour
             LobbyPinger.Singleton.StartPingLobby(lobby);
 
             _ = NetworkManager.Singleton.StartHost();
-            _ = NetworkManager.Singleton.SceneManager.LoadScene("Lobby", LoadSceneMode.Single);
-            LoadingTool.Singleton.HideLoading();
+            _ = NetworkManager.Singleton.SceneManager.LoadScene("GamePlay", LoadSceneMode.Single);
         }
         catch (LobbyServiceException ex)
         {
             Debug.LogError(ex.Message);
+        }
+        finally
+        {
+            LoadingTool.Singleton.HideLoading();
         }
     }
 
