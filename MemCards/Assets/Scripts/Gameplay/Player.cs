@@ -32,6 +32,12 @@ public class Player : NetworkBehaviour
 
     [SerializeField]
     private NetworkVariable<float> shieldDecreasing;
+    private bool lockInteraction = true;
+
+    public void SetInteraction(bool value)
+    {
+        lockInteraction = value;
+    }
 
     public void ResetCamera()
     {
@@ -68,6 +74,16 @@ public class Player : NetworkBehaviour
             else
             {
                 ShieldPoints = 0;
+            }
+            if (!lockInteraction)
+            {
+                // Interact
+                Debug.Log("Interaction!");
+                if (healthPoints.Value <= 0)
+                {
+                    lockInteraction = true;
+                    GameController.Singleton.PlayerLoseServerRpc(IsHost ? "Player1" : "Player2");
+                }
             }
         }
     }

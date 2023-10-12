@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlayerView : MonoBehaviour
 {
     [SerializeField]
+    private TMP_Text playerName;
+
+    [SerializeField]
     private TMP_Text buffs;
 
     [SerializeField]
@@ -36,6 +39,7 @@ public class PlayerView : MonoBehaviour
     {
         if (player != null)
         {
+            playerName.text = player.IsHost ? "Player1" : "Player2";
             healthPointsFront.sizeDelta = Vector2.Lerp(
                 healthPointsFront.sizeDelta,
                 new Vector2(
