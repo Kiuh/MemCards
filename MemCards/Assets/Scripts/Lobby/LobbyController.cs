@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
@@ -102,6 +103,8 @@ public class LobbyController : NetworkBehaviour
     private void StartGameClientRpc()
     {
         beginLevel.SetActive(false);
+        Player player = FindObjectsOfType<Player>().Where(x => x.IsLocalPlayer).First();
+        player.ResetCamera();
     }
 
     [ServerRpc(RequireOwnership = false)]
