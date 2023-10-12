@@ -11,6 +11,7 @@ using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ServicesController : MonoBehaviour
 {
@@ -19,6 +20,18 @@ public class ServicesController : MonoBehaviour
 
     [SerializeField]
     private LobbiesList lobbiesList;
+
+    [SerializeField]
+    private Button createLobby;
+
+    [SerializeField]
+    private Button refreshLobbies;
+
+    private void Awake()
+    {
+        createLobby.onClick.AddListener(CreateLobby);
+        refreshLobbies.onClick.AddListener(RefreshLobbies);
+    }
 
     private async void Start()
     {
@@ -30,7 +43,6 @@ public class ServicesController : MonoBehaviour
         }
     }
 
-    // Called by button create lobby
     public async void CreateLobby()
     {
         try
@@ -71,7 +83,6 @@ public class ServicesController : MonoBehaviour
         }
     }
 
-    // Called by Refresh lobbies
     public async void RefreshLobbies()
     {
         try

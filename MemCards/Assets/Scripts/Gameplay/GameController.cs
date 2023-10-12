@@ -153,7 +153,6 @@ public class GameController : NetworkBehaviour
         repeatView.Ready.interactable = true;
         readyCounterText.gameObject.SetActive(true);
         Player player = FindObjectsOfType<Player>().Where(x => x.IsLocalPlayer).First();
-        player.ResetCamera();
         player.PreparePlayerToGame();
     }
 

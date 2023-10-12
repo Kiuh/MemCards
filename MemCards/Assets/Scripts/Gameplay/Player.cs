@@ -39,15 +39,6 @@ public class Player : NetworkBehaviour
         lockInteraction = value;
     }
 
-    public void ResetCamera()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.lockState = CursorLockMode.None;
-        CinemachinePOV pov = virtualCamera.GetCinemachineComponent<CinemachinePOV>();
-        pov.m_HorizontalAxis.Value = 0f;
-        pov.m_VerticalAxis.Value = 0f;
-    }
-
     public override void OnNetworkSpawn()
     {
         if (!IsLocalPlayer)
