@@ -1786,6 +1786,8 @@ GameObject:
   - component: {fileID: 6430072458188651696}
   - component: {fileID: 6846048056146783347}
   - component: {fileID: 6756497329865932658}
+  - component: {fileID: 1814120002469558666}
+  - component: {fileID: 2158898323652665288}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1830,6 +1832,9 @@ MonoBehaviour:
     m_InternalValue: 20
   shieldDecreasing:
     m_InternalValue: 1
+  table: {fileID: 2158898323652665288}
+  deck: {fileID: 1814120002469558666}
+  EnemyPlayer: {fileID: 0}
 --- !u!114 &6756497329865932658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1850,6 +1855,32 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &1814120002469558666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973827532769677918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89165701eac30ca4f80eb3fb9d0dbfae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 7692647226140119079, guid: 94236212e42113649a741234ec01afd6, type: 3}
+  initDeckCount: 18
+--- !u!114 &2158898323652665288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973827532769677918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8bf79caaac27b4b8185eb42c735446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5271786703092061696
 GameObject:
   m_ObjectHideFlags: 0

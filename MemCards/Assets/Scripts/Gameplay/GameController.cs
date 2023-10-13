@@ -101,13 +101,44 @@ public class GameController : NetworkBehaviour
         repeatView.WinLabel.text = winner + " Win";
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc]
     private void SpawnPlayerServerRpc(ServerRpcParams rpcParams = default)
     {
         PlayerSlot slot = FindObjectsOfType<PlayerSlot>().Where(x => !x.IsBusy).First();
+        slot.GetComponent<NetworkObject>().ChangeOwnership(rpcParams.Receive.SenderClientId);
         Player player = Instantiate(playerPrefab, slot.transform.position, slot.transform.rotation);
         player.GetComponent<NetworkObject>().SpawnAsPlayerObject(rpcParams.Receive.SenderClientId);
+        player.Deck.SetInitInfo(slot.DeckInitInfo);
+        player.Deck.SpawnDeck(rpcParams.Receive.SenderClientId);
+        player.Deck.SetRandomCardValues();
+        player.Table.SetInitInfo(slot.TableInitInfo);
         slot.IsBusy = true;
+        InitPlayerClientRpc(rpcParams.Receive.SenderClientId);
+        if (FindObjectsOfType<Player>().Count() == 2)
+        {
+            SetPlayersEnemyClientRpc();
+        }
+    }
+
+    [ClientRpc]
+    private void InitPlayerClientRpc(ulong ownerPlayerId)
+    {
+        Player player = FindObjectsOfType<Player>()
+            .FirstOrDefault(x => x.OwnerClientId == ownerPlayerId);
+        PlayerSlot slot = FindObjectsOfType<PlayerSlot>()
+            .FirstOrDefault(x => x.OwnerClientId == ownerPlayerId);
+        player.Deck.SetInitInfo(slot.DeckInitInfo);
+        player.Table.SetInitInfo(slot.TableInitInfo);
+        player.Table.FillCardsPositions();
+        player.Deck.CollectOwnedCards();
+    }
+
+    [ClientRpc]
+    private void SetPlayersEnemyClientRpc()
+    {
+        Player[] players = FindObjectsOfType<Player>();
+        players[0].EnemyPlayer = players[1];
+        players[1].EnemyPlayer = players[0];
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -163,7 +194,10 @@ public class GameController : NetworkBehaviour
         FindObjectsOfType<Player>()
             .Where(x => x.IsLocalPlayer)
             .ToList()
-            .ForEach(x => x.SetLockInteraction(false));
-        // TODO
+            .ForEach(x =>
+            {
+                x.SetLockInteraction(false);
+                x.BeginningGame();
+            });
     }
 }

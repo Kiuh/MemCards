@@ -860,6 +860,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347221794}
   m_CullTransparentMesh: 1
+--- !u!114 &394873647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7523486120206658056, guid: c239d769f063bf346b13505db380f269, type: 3}
+  m_PrefabInstance: {fileID: 2500199742235651642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6e22464e3eafd4c9ef8b0b4ff955aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &405852224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,7 +2121,7 @@ PrefabInstance:
     - target: {fileID: 6670834379568124726, guid: feab6851bd2cad6459e75da41d36c65c, type: 3}
       propertyPath: lobbiesList
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 394873647}
     - target: {fileID: 6670834379568124726, guid: feab6851bd2cad6459e75da41d36c65c, type: 3}
       propertyPath: refreshLobbies
       value: 

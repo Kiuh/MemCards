@@ -1,7 +1,32 @@
-using Common;
+﻿using Common;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
+
+public enum CardType
+{
+    Shield,
+    Heal,
+    Evade,
+    Attack,
+    Freeze,
+    Poison
+}
+
+public enum AffectType
+{
+    Player,
+    Enemy
+}
+
+[Serializable]
+public struct TypeView
+{
+    public CardType CardType;
+    public GameObject Model;
+}
 
 public enum CardState
 {
@@ -11,8 +36,7 @@ public enum CardState
     Transition
 }
 
-[SelectionBase]
-public class Card : MonoBehaviour
+public class PlayingCard : NetworkBehaviour
 {
     [SerializeField]
     private float rotationTime;
@@ -24,25 +48,44 @@ public class Card : MonoBehaviour
     private AnimationCurve curve;
 
     [SerializeField]
-    private Transform centerPoint;
-
-    [SerializeField]
-    private MeshRenderer meshRenderer;
+    private List<TypeView> cardViews;
 
     [InspectorReadOnly]
     private readonly CardState nextState;
     public CardState State { get; private set; } = CardState.Transition;
+
+    [SerializeField]
+    private NetworkVariable<CardType> cardType;
+
     public Guid Guid { get; set; }
+    public CardType CardType
+    {
+        get => cardType.Value;
+        set => cardType.Value = value;
+    }
 
     public void SetCardState(CardState state)
     {
         State = state;
     }
 
-    public void InitCard(Material material, Guid guid)
+    private void Awake()
+    {
+        cardType.OnValueChanged += SetCardType;
+    }
+
+    public void InitCard(CardType material, Guid guid)
     {
         Guid = guid;
-        meshRenderer.material = material;
+        cardType.Value = material;
+    }
+
+    private void SetCardType(CardType prevType, CardType newType)
+    {
+        foreach (TypeView view in cardViews)
+        {
+            view.Model.SetActive(view.CardType == newType);
+        }
     }
 
     public void ShowCard(Action nextAction)
