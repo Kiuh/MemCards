@@ -6,13 +6,24 @@ using Unity.Netcode;
 using UnityEngine;
 
 [Serializable]
-public struct DeckConfig
+public struct DeckConfig : INetworkSerializable
 {
     public Transform StartDeckPosition;
+    public Vector3 StartDeckPositionVector;
     public Vector3 StartRotationModifier;
     public float ShuffleAnimationTime;
     public float MoveToDeckAnimationTime;
     public float YDeckGrowth;
+
+    public void NetworkSerialize<T>(BufferSerializer<T> serializer)
+        where T : IReaderWriter
+    {
+        serializer.SerializeValue(ref ShuffleAnimationTime);
+        serializer.SerializeValue(ref MoveToDeckAnimationTime);
+        serializer.SerializeValue(ref YDeckGrowth);
+        serializer.SerializeValue(ref StartDeckPositionVector);
+        serializer.SerializeValue(ref StartRotationModifier);
+    }
 }
 
 public class Deck : NetworkBehaviour
@@ -22,13 +33,24 @@ public class Deck : NetworkBehaviour
 
     [SerializeField]
     private int initDeckCount;
-    private DeckConfig deckConfig;
+
+    [SerializeField]
+    private NetworkVariable<DeckConfig> deckConfig = new();
+    public DeckConfig DeckConfig
+    {
+        get => deckConfig.Value;
+        set => deckConfig.Value = value;
+    }
+
+    [SerializeField]
     private List<PlayingCard> playingCards = new();
     public List<PlayingCard> PlayingCards => playingCards;
 
+    private int lastPlacedIndex = 0;
+
     public void SpawnDeck(ulong OwnerId)
     {
-        Vector3 creatingPosition = deckConfig.StartDeckPosition.position;
+        Vector3 creatingPosition = DeckConfig.StartDeckPositionVector;
         for (int i = 0; i < initDeckCount; i++)
         {
             playingCards.Add(
@@ -36,35 +58,55 @@ public class Deck : NetworkBehaviour
                     cardPrefab,
                     creatingPosition,
                     Quaternion.Euler(
-                        cardPrefab.transform.rotation.eulerAngles + deckConfig.StartRotationModifier
+                        cardPrefab.transform.rotation.eulerAngles + DeckConfig.StartRotationModifier
                     )
                 )
             );
             playingCards.Last().GetComponent<NetworkObject>().SpawnWithOwnership(OwnerId);
-            creatingPosition.y += deckConfig.YDeckGrowth;
+            creatingPosition.y += DeckConfig.YDeckGrowth;
+        }
+    }
+
+    public void FillCardsPositions()
+    {
+        _ = StartCoroutine(WaitForData());
+    }
+
+    private IEnumerator WaitForData()
+    {
+        while (DeckConfig.StartDeckPositionVector == Vector3.zero)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        Vector3 creatingPosition = DeckConfig.StartDeckPositionVector;
+        for (int i = 0; i < initDeckCount; i++)
+        {
+            cardsPositions.Add(creatingPosition);
+            creatingPosition.y += DeckConfig.YDeckGrowth;
         }
     }
 
     public void CollectOwnedCards()
     {
         playingCards.Clear();
-        FindObjectsOfType<PlayingCard>()
-            .Where(x => x.IsOwner)
-            .ToList()
-            .ForEach(x => playingCards.Add(x));
-    }
-
-    public void SetInitInfo(DeckConfig initInfo)
-    {
-        deckConfig = initInfo;
+        foreach (PlayingCard item in FindObjectsOfType<PlayingCard>().Where(x => x.IsOwner))
+        {
+            playingCards.Add(item);
+        }
     }
 
     public void SetRandomCardValues()
     {
         IEnumerable<CardType> types = Enumerable.Range(0, 6).Select(x => (CardType)x);
         // TODO: Implement separating logics
-        List<(CardType x, Guid)> pairs = types.Select(x => (x, Guid.NewGuid())).ToList();
-        (CardType x, Guid) pair = pairs.GetRandom();
+
+        // TODO: Implement separating logics
+
+        // TODO: Implement separating logics
+        List<(CardType x, string)> pairs = types
+            .Select(x => (x, Guid.NewGuid().ToString()))
+            .ToList();
+        (CardType x, string) pair = pairs.GetRandom();
         for (int i = 0; i < playingCards.Count; i++)
         {
             if (i % 2 == 0)
@@ -75,11 +117,14 @@ public class Deck : NetworkBehaviour
         }
     }
 
-    public void PlaceCardsIntoDeck(float time, Action nextAction)
+    private List<Vector3> cardsPositions = new();
+
+    public void PlaceCardsIntoDeck(Vector3 hiddenAngles, float time, Action nextAction)
     {
         bool[] bools = new bool[playingCards.Count * 2];
         int index = 0;
-        Vector3 creatingPosition = deckConfig.StartDeckPosition.position;
+        Vector3 creatingPosition = DeckConfig.StartDeckPositionVector;
+
         foreach (PlayingCard card in playingCards)
         {
             bools[index] = false;
@@ -88,9 +133,9 @@ public class Deck : NetworkBehaviour
             index++;
             bools[index] = false;
             int buffer1 = index;
-            card.HideCard(() => bools[buffer1] = true);
+            card.RotateCard(hiddenAngles, () => bools[buffer1] = true);
             index++;
-            creatingPosition.y += deckConfig.YDeckGrowth;
+            creatingPosition.y += DeckConfig.YDeckGrowth;
         }
         _ = StartCoroutine(WaitForAll(bools, nextAction));
     }
@@ -118,7 +163,7 @@ public class Deck : NetworkBehaviour
             int buffer1 = index;
             card1.Card.SpinAndMove(
                 card2.Card.transform.position,
-                deckConfig.ShuffleAnimationTime,
+                DeckConfig.ShuffleAnimationTime,
                 () => bools[buffer1] = true
             );
             index++;
@@ -126,12 +171,19 @@ public class Deck : NetworkBehaviour
             int buffer2 = index;
             card2.Card.SpinAndMove(
                 card1.Card.transform.position,
-                deckConfig.ShuffleAnimationTime,
+                DeckConfig.ShuffleAnimationTime,
                 () => bools[buffer2] = true
             );
             index++;
         }
+        lastPlacedIndex = 0;
         _ = StartCoroutine(WaitForAll(bools, nextAction));
+    }
+
+    public void PlaceCardToDeck(PlayingCard card, float time, Action nextAction)
+    {
+        card.MoveCardToPosition(cardsPositions[lastPlacedIndex], time, nextAction);
+        lastPlacedIndex++;
     }
 
     public void PlaceDeckToTable(List<Vector3> positions, Action nextAction)
@@ -143,6 +195,9 @@ public class Deck : NetworkBehaviour
         int index = 0;
         if (localCards.Count != localPositions.Count)
         {
+            Debug.LogError(
+                "Local cards: " + localCards.Count + "local Positions: " + localPositions.Count
+            );
             throw new Exception();
         }
         while (localCards.Count > 0)
@@ -153,7 +208,7 @@ public class Deck : NetworkBehaviour
             Vector3 position = localPositions.TakeRandom();
             card.MoveCardToPosition(
                 position,
-                deckConfig.MoveToDeckAnimationTime,
+                DeckConfig.MoveToDeckAnimationTime,
                 () => bools[buffer] = true
             );
             index++;

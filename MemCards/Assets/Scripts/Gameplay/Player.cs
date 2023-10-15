@@ -6,6 +6,7 @@ using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
+[Serializable]
 public struct PlayerConfig
 {
     public float LiftY;
@@ -16,47 +17,148 @@ public struct PlayerConfig
     public float WaitingTime;
 }
 
+[Serializable]
+public struct CardsConfig
+{
+    [Header("Attack")]
+    public float AttackDamage;
+
+    [Header("Poison")]
+    public float TickDamage;
+    public float TickInterval;
+    public float PoisonApplying;
+    public float PoisonDecreasing;
+
+    [Header("Freeze")]
+    public float FreezeTime;
+    public float FreezeDecreasing;
+
+    [Header("Shield")]
+    public float ShieldAmount;
+    public float ShieldDecreasing;
+    public float ShieldMaxAmount;
+    public float StartShieldPoints;
+
+    [Header("Heal")]
+    public float HealAmount;
+    public float MaxHealthPoints;
+    public float StartHealthPoints;
+
+    [Header("Evade")]
+    public int MaxEvadeCount;
+}
+
+[Serializable]
+public struct DynamicPlayerConfig : INetworkSerializable
+{
+    public Vector3 HiddenAngels;
+    public Vector3 ShownAngels;
+
+    public void NetworkSerialize<T>(BufferSerializer<T> serializer)
+        where T : IReaderWriter
+    {
+        serializer.SerializeValue(ref HiddenAngels);
+        serializer.SerializeValue(ref ShownAngels);
+    }
+}
+
 public class Player : NetworkBehaviour
 {
+    [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private CardShower shower;
+
     [SerializeField]
     private CinemachineVirtualCamera virtualCamera;
 
     [SerializeField]
-    private NetworkVariable<float> maxHealthPoints;
-    public float MaxHealthPoints => maxHealthPoints.Value;
-    private NetworkVariable<float> healthPoints =
-        new(0, writePerm: NetworkVariableWritePermission.Owner);
-    public float HealthPoints
+    private CardsConfig cardsConfig;
+    public CardsConfig CardsConfig => cardsConfig;
+
+    private NetworkVariable<float> healthPoints = new(0);
+    public float HealthPoints => healthPoints.Value;
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetHealthPointsServerRpc(float value)
     {
-        get => healthPoints.Value;
-        set => healthPoints.Value = value;
+        healthPoints.Value = value;
     }
 
     [SerializeField]
-    private NetworkVariable<float> maxShieldPoints;
-    public float MaxShieldPoints => maxShieldPoints.Value;
-    private NetworkVariable<float> shieldPoints =
-        new(0, writePerm: NetworkVariableWritePermission.Owner);
+    private NetworkVariable<bool> evadeCoin = new(false);
+    public bool EvadeCoin => evadeCoin.Value;
 
-    public float ShieldPoints
+    [ServerRpc(RequireOwnership = false)]
+    public void SetEvadeCoinServerRpc(bool value)
     {
-        get => shieldPoints.Value;
-        set => shieldPoints.Value = value;
+        evadeCoin.Value = value;
     }
 
-    [SerializeField]
-    private NetworkVariable<float> shieldDecreasing;
+    private NetworkVariable<int> fullMatches = new(0);
+    public int FullMatches => fullMatches.Value;
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetFullMatchesServerRpc(int value)
+    {
+        fullMatches.Value = value;
+    }
+
+    private NetworkVariable<float> shieldPoints = new(0);
+    public float ShieldPoints => shieldPoints.Value;
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetShieldPointsServerRpc(float value)
+    {
+        shieldPoints.Value = value;
+    }
+
+    private NetworkVariable<float> freezeTime = new(0);
+    public float FreezeTime => freezeTime.Value;
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetFreezeTimeServerRpc(float value)
+    {
+        freezeTime.Value = value;
+    }
+
+    private NetworkVariable<float> poisonTime = new(0);
+    private NetworkVariable<float> poisonTick = new(0);
+    public float PoisonTime => poisonTime.Value;
+    public float PoisonTick => poisonTick.Value;
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetPoisonTimeServerRpc(float value)
+    {
+        poisonTime.Value = value;
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetPoisonTickServerRpc(float value)
+    {
+        poisonTick.Value = value;
+    }
+
     private bool lockInteraction = true;
+    private bool lockDeath = true;
 
     [SerializeField]
     private Table table;
     public Table Table => table;
 
     [SerializeField]
+    private NetworkVariable<DynamicPlayerConfig> dynamicConfig = new();
+    public DynamicPlayerConfig DynamicPlayerConfig
+    {
+        get => dynamicConfig.Value;
+        set => dynamicConfig.Value = value;
+    }
+
+    [SerializeField]
     private Deck deck;
     public Deck Deck => deck;
 
-    private Player enemyPlayer;
     public Player EnemyPlayer;
 
     private PlayingCard clickedCard = null;
@@ -67,26 +169,30 @@ public class Player : NetworkBehaviour
     public void SetLockInteraction(bool value)
     {
         lockInteraction = value;
+        lockDeath = value;
     }
 
     public override void OnNetworkSpawn()
     {
-        if (!IsLocalPlayer)
+        if (IsLocalPlayer)
         {
-            virtualCamera.gameObject.SetActive(false);
+            PreparePlayerToGameServerRpc();
+            FindObjectOfType<PlayerView>().Player = this;
+            shower = FindObjectOfType<CardShower>();
         }
         else
         {
-            PreparePlayerToGame();
-            FindObjectOfType<PlayerView>().Player = this;
+            virtualCamera.gameObject.SetActive(false);
         }
         base.OnNetworkSpawn();
     }
 
-    public void PreparePlayerToGame()
+    [ServerRpc]
+    public void PreparePlayerToGameServerRpc()
     {
-        healthPoints.Value = MaxHealthPoints;
-        shieldPoints.Value = 0;
+        healthPoints.Value = CardsConfig.StartHealthPoints;
+        shieldPoints.Value = CardsConfig.StartShieldPoints;
+        fullMatches.Value = 0;
     }
 
     public void Suicide()
@@ -94,21 +200,62 @@ public class Player : NetworkBehaviour
         healthPoints.Value = 0;
     }
 
+    [ClientRpc]
+    private void SetLockInteractionClientRpc(bool value)
+    {
+        lockInteraction = value;
+    }
+
     private void Update()
     {
-        if (IsLocalPlayer)
+        if (IsHost)
         {
             if (ShieldPoints > 0)
             {
-                ShieldPoints -= Time.deltaTime * shieldDecreasing.Value;
+                shieldPoints.Value -= Time.deltaTime * CardsConfig.ShieldDecreasing;
             }
-            else
+            else if (ShieldPoints != 0)
             {
-                ShieldPoints = 0;
+                shieldPoints.Value = 0;
             }
+            if (FreezeTime > 0)
+            {
+                freezeTime.Value -= Time.deltaTime * CardsConfig.FreezeDecreasing;
+                SetLockInteractionClientRpc(true);
+            }
+            else if (FreezeTime != 0)
+            {
+                freezeTime.Value = 0;
+                SetLockInteractionClientRpc(false);
+            }
+            if (PoisonTime > 0)
+            {
+                poisonTime.Value -= Time.deltaTime * CardsConfig.PoisonDecreasing;
+                poisonTick.Value -= Time.deltaTime * CardsConfig.PoisonDecreasing;
+                if (poisonTick.Value <= 0)
+                {
+                    if (EvadeCoin)
+                    {
+                        evadeCoin.Value = false;
+                    }
+                    else
+                    {
+                        healthPoints.Value -= CardsConfig.TickDamage;
+                        PlayAnimation(CardType.Poison);
+                    }
+                    poisonTick.Value = CardsConfig.TickInterval;
+                }
+            }
+            else if (FreezeTime != 0)
+            {
+                poisonTime.Value = 0;
+            }
+        }
+        if (IsLocalPlayer)
+        {
             if (!lockInteraction)
             {
-                if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0))
                 {
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit[] hits = Physics.RaycastAll(ray);
@@ -126,7 +273,10 @@ public class Player : NetworkBehaviour
                             {
                                 clickedCard = hitCard;
                                 hitCard.SetCardState(CardState.Transition);
-                                hitCard.ShowCard(() => hitCard.SetCardState(CardState.Shown));
+                                hitCard.RotateCard(
+                                    DynamicPlayerConfig.ShownAngels,
+                                    () => hitCard.SetCardState(CardState.Shown)
+                                );
                             }
                         }
                         else if (clickedCard != hitCard && hitCard.State == CardState.Hidden)
@@ -136,24 +286,44 @@ public class Player : NetworkBehaviour
                             buffer.SetCardState(CardState.Transition);
                             if (CompareCard(hitCard, clickedCard))
                             {
-                                hitCard.ShowCard(() => ThrowCards(hitCard, buffer));
+                                hitCard.RotateCard(
+                                    DynamicPlayerConfig.ShownAngels,
+                                    () => ThrowCards(hitCard, buffer)
+                                );
                             }
                             else
                             {
-                                hitCard.ShowCard(() =>
-                                {
-                                    hitCard.HideCard(() => hitCard.SetCardState(CardState.Hidden));
-                                    buffer.HideCard(() => buffer.SetCardState(CardState.Hidden));
-                                });
+                                lockInteraction = true;
+                                hitCard.RotateCard(
+                                    DynamicPlayerConfig.ShownAngels,
+                                    () =>
+                                    {
+                                        hitCard.RotateCard(
+                                            DynamicPlayerConfig.HiddenAngels,
+                                            () => hitCard.SetCardState(CardState.Hidden)
+                                        );
+                                        buffer.RotateCard(
+                                            DynamicPlayerConfig.HiddenAngels,
+                                            () =>
+                                            {
+                                                buffer.SetCardState(CardState.Hidden);
+                                                lockInteraction = false;
+                                            }
+                                        );
+                                    }
+                                );
                             }
                             clickedCard = null;
                         }
                     }
                 }
+            }
+            if (!lockDeath)
+            {
                 if (healthPoints.Value <= 0)
                 {
-                    lockInteraction = true;
-                    GameController.Singleton.PlayerLoseServerRpc(IsHost ? "Player1" : "Player2");
+                    lockDeath = true;
+                    GameController.Singleton.PlayerLoseServerRpc(IsHost ? "Player2" : "Player1");
                 }
             }
         }
@@ -168,24 +338,114 @@ public class Player : NetworkBehaviour
     {
         PlayingCard buffer1 = firstCard;
         PlayingCard buffer2 = secondCard;
+        shower.ShowCard(buffer1.CardType);
+        (bool FirstCard, bool SecondCard, CardType CardType) ward = (
+            false,
+            false,
+            buffer1.CardType
+        );
         firstCard.SetCardState(CardState.Transition);
         secondCard.SetCardState(CardState.Transition);
-        firstCard.RiseAndThrow(
+        firstCard.Rise(
             playerConfig.LiftY,
-            enemyPlayer.transform.position,
             playerConfig.LiftTime,
-            playerConfig.FlyTime,
             playerConfig.SpinSpeed,
-            () => AfterThrow(buffer1)
+            () =>
+            {
+                deck.PlaceCardToDeck(buffer1, playerConfig.FlyTime, () => AfterThrow(buffer1));
+                ward.FirstCard = true;
+            }
         );
-        secondCard.RiseAndThrow(
+        secondCard.Rise(
             playerConfig.LiftY,
-            enemyPlayer.transform.position,
             playerConfig.LiftTime,
-            playerConfig.FlyTime,
             playerConfig.SpinSpeed,
-            () => AfterThrow(buffer2)
+            () =>
+            {
+                deck.PlaceCardToDeck(buffer2, playerConfig.FlyTime, () => AfterThrow(buffer2));
+                ward.SecondCard = true;
+            }
         );
+        _ = StartCoroutine(ExecuteEffect(ward));
+    }
+
+    private IEnumerator ExecuteEffect((bool FirstCard, bool SecondCard, CardType CardType) ward)
+    {
+        while (ward.FirstCard || ward.SecondCard)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        ApplyEffectServerRpc(ward.CardType, OwnerClientId, EnemyPlayer.OwnerClientId);
+    }
+
+    public void PlayAnimation(CardType CardType)
+    {
+        animator.Play(
+            CardType switch
+            {
+                CardType.Attack => "GetHit",
+                CardType.Freeze => "Dizzy",
+                CardType.Poison => "GetHit",
+                _ => "IdleNormal"
+            }
+        );
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ApplyEffectServerRpc(CardType CardType, ulong playerId, ulong enemyID)
+    {
+        Player[] players = FindObjectsOfType<Player>();
+        Player player = players.FirstOrDefault(x => x.OwnerClientId == playerId);
+        Player enemy = players.FirstOrDefault(x => x.OwnerClientId == enemyID);
+        if (CardType == CardType.Attack)
+        {
+            if (enemy.EvadeCoin)
+            {
+                enemy.SetEvadeCoinServerRpc(false);
+            }
+            else
+            {
+                enemy.SetHealthPointsServerRpc(
+                    enemy.HealthPoints - Math.Max(0, CardsConfig.AttackDamage - enemy.ShieldPoints)
+                );
+                enemy.PlayAnimation(CardType);
+            }
+        }
+        else if (CardType == CardType.Freeze)
+        {
+            // Freeze
+            enemy.SetFreezeTimeServerRpc(enemy.FreezeTime + CardsConfig.FreezeTime);
+            enemy.PlayAnimation(CardType);
+        }
+        else if (CardType == CardType.Poison)
+        {
+            // Poison
+            enemy.SetPoisonTimeServerRpc(enemy.PoisonTime + CardsConfig.PoisonApplying);
+            enemy.PlayAnimation(CardType);
+        }
+        else if (CardType == CardType.Shield)
+        {
+            player.SetShieldPointsServerRpc(
+                Math.Min(
+                    Math.Max(player.ShieldPoints + 20, player.ShieldPoints),
+                    cardsConfig.ShieldMaxAmount
+                )
+            );
+            player.PlayAnimation(CardType);
+        }
+        else if (CardType == CardType.Heal)
+        {
+            player.SetHealthPointsServerRpc(
+                Math.Min(player.HealthPoints + 20, cardsConfig.MaxHealthPoints)
+            );
+
+            player.PlayAnimation(CardType);
+        }
+        else if (CardType == CardType.Evade)
+        {
+            player.SetEvadeCoinServerRpc(true);
+            player.PlayAnimation(CardType);
+        }
     }
 
     public void AfterThrow(PlayingCard card)
@@ -195,21 +455,35 @@ public class Player : NetworkBehaviour
         {
             lockInteraction = true;
             deck.PlaceCardsIntoDeck(
+                DynamicPlayerConfig.HiddenAngels,
                 playerConfig.ReturningBackTime,
                 () =>
                 {
-                    deck.SetRandomCardValues();
+                    SetRandomCardValuesServerRpc();
                     BeginningGame();
+                    SetFullMatchesServerRpc(FullMatches + 1);
                 }
             );
         }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SetRandomCardValuesServerRpc()
+    {
+        deck.SetRandomCardValues();
     }
 
     private void ShowAllCards(List<PlayingCard> cards, Action nextAction)
     {
         foreach (PlayingCard card in cards)
         {
-            card.ShowCard(() => _ = StartCoroutine(Wait(() => card.HideCard(nextAction))));
+            card.RotateCard(
+                DynamicPlayerConfig.ShownAngels,
+                () =>
+                    _ = StartCoroutine(
+                        Wait(() => card.RotateCard(DynamicPlayerConfig.HiddenAngels, nextAction))
+                    )
+            );
         }
     }
 

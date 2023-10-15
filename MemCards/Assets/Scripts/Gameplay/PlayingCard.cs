@@ -57,7 +57,7 @@ public class PlayingCard : NetworkBehaviour
     [SerializeField]
     private NetworkVariable<CardType> cardType;
 
-    public Guid Guid { get; set; }
+    public string Guid { get; set; }
     public CardType CardType
     {
         get => cardType.Value;
@@ -69,61 +69,40 @@ public class PlayingCard : NetworkBehaviour
         State = state;
     }
 
-    private void Awake()
+    public void InitCard(CardType cardType, string guid)
     {
-        cardType.OnValueChanged += SetCardType;
+        this.cardType.Value = cardType;
+        SetCardTypeClientRpc(cardType, guid);
     }
 
-    public void InitCard(CardType material, Guid guid)
+    [ClientRpc]
+    private void SetCardTypeClientRpc(CardType newType, string guid)
     {
         Guid = guid;
-        cardType.Value = material;
-    }
-
-    private void SetCardType(CardType prevType, CardType newType)
-    {
         foreach (TypeView view in cardViews)
         {
             view.Model.SetActive(view.CardType == newType);
         }
     }
 
-    public void ShowCard(Action nextAction)
+    public void RotateCard(Vector3 finalAngles, Action nextAction)
     {
         rotationTimer = rotationTime;
-        _ = StartCoroutine(RotateAnimation(false, nextAction));
+        _ = StartCoroutine(RotateAnimation(finalAngles, nextAction));
     }
 
-    public void HideCard(Action nextAction)
+    private IEnumerator RotateAnimation(Vector3 finalAngles, Action nextAction)
     {
-        rotationTimer = rotationTime;
-        _ = StartCoroutine(RotateAnimation(true, nextAction));
-    }
-
-    private IEnumerator RotateAnimation(bool reverse, Action nextAction)
-    {
+        Vector3 startDegrees = transform.rotation.eulerAngles;
         while (rotationTimer > 0)
         {
             rotationTimer -= Time.deltaTime;
-            float degreePoint =
-                (reverse ? (1 - (rotationTime - rotationTimer)) : (rotationTime - rotationTimer))
-                / rotationTime;
             transform.rotation = Quaternion.Euler(
-                new Vector3(
-                    (reverse ? -360 : 0) + (curve.Evaluate(degreePoint) * 180),
-                    transform.rotation.y,
-                    transform.rotation.z
-                )
+                Vector3.Lerp(startDegrees, finalAngles, 1 - (rotationTimer / rotationTime))
             );
             yield return new WaitForEndOfFrame();
         }
-        transform.rotation = Quaternion.Euler(
-            new Vector3(
-                curve.Evaluate(reverse ? 0 : 1) * 180,
-                transform.rotation.y,
-                transform.rotation.z
-            )
-        );
+        transform.rotation = Quaternion.Euler(finalAngles);
         State = nextState;
         nextAction?.Invoke();
     }
@@ -170,14 +149,7 @@ public class PlayingCard : NetworkBehaviour
 
     private bool stopper = true;
 
-    public void RiseAndThrow(
-        float liftY,
-        Vector3 destination,
-        float riseTime,
-        float flyTime,
-        float spinSpeed,
-        Action nextAction
-    )
+    public void Rise(float liftY, float riseTime, float spinSpeed, Action nextAction)
     {
         stopper = false;
         _ = StartCoroutine(Spin(spinSpeed));
@@ -188,7 +160,7 @@ public class PlayingCard : NetworkBehaviour
                 () =>
                 {
                     stopper = true;
-                    _ = StartCoroutine(Move(flyTime, destination, nextAction));
+                    nextAction?.Invoke();
                 }
             )
         );

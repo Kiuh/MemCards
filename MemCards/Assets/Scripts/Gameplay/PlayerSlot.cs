@@ -11,10 +11,14 @@ public class PlayerSlot : NetworkBehaviour
     }
 
     [SerializeField]
-    private DeckConfig deckInitInfo;
-    public DeckConfig DeckInitInfo => deckInitInfo;
+    private DynamicPlayerConfig dynamicPlayerConfig;
+    public DynamicPlayerConfig DynamicPlayerConfig => dynamicPlayerConfig;
 
     [SerializeField]
-    private TableConfig tableInitInfo;
-    public TableConfig TableInitInfo => tableInitInfo;
+    private DeckConfig deckConfig;
+    public DeckConfig DeckConfig => deckConfig;
+
+    [SerializeField]
+    private TableConfig tableConfig;
+    public TableConfig TableConfig => tableConfig;
 }

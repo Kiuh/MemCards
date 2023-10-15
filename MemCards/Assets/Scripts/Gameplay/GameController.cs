@@ -78,9 +78,18 @@ public class GameController : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        SpawnPlayerServerRpc();
+        if (
+            !FindObjectsOfType<Player>()
+                .Any(
+                    x =>
+                        x.GetComponent<NetworkObject>().OwnerClientId
+                        == NetworkManager.Singleton.LocalClientId
+                )
+        )
+        {
+            SpawnPlayerServerRpc(NetworkManager.Singleton.LocalClientId);
+        }
         SetPlayerRestartReadyServerRpc(false);
-        base.OnNetworkSpawn();
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -101,19 +110,22 @@ public class GameController : NetworkBehaviour
         repeatView.WinLabel.text = winner + " Win";
     }
 
-    [ServerRpc]
-    private void SpawnPlayerServerRpc(ServerRpcParams rpcParams = default)
+    [ServerRpc(RequireOwnership = false)]
+    private void SpawnPlayerServerRpc(ulong clientId)
     {
         PlayerSlot slot = FindObjectsOfType<PlayerSlot>().Where(x => !x.IsBusy).First();
-        slot.GetComponent<NetworkObject>().ChangeOwnership(rpcParams.Receive.SenderClientId);
+        slot.GetComponent<NetworkObject>().ChangeOwnership(clientId);
         Player player = Instantiate(playerPrefab, slot.transform.position, slot.transform.rotation);
-        player.GetComponent<NetworkObject>().SpawnAsPlayerObject(rpcParams.Receive.SenderClientId);
-        player.Deck.SetInitInfo(slot.DeckInitInfo);
-        player.Deck.SpawnDeck(rpcParams.Receive.SenderClientId);
+        player.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
+
+        player.Deck.DeckConfig = slot.DeckConfig;
+        player.Table.TableConfig = slot.TableConfig;
+        player.DynamicPlayerConfig = slot.DynamicPlayerConfig;
+
+        player.Deck.SpawnDeck(clientId);
         player.Deck.SetRandomCardValues();
-        player.Table.SetInitInfo(slot.TableInitInfo);
         slot.IsBusy = true;
-        InitPlayerClientRpc(rpcParams.Receive.SenderClientId);
+        InitPlayerClientRpc(clientId);
         if (FindObjectsOfType<Player>().Count() == 2)
         {
             SetPlayersEnemyClientRpc();
@@ -123,14 +135,20 @@ public class GameController : NetworkBehaviour
     [ClientRpc]
     private void InitPlayerClientRpc(ulong ownerPlayerId)
     {
+        if (ownerPlayerId != NetworkManager.Singleton.LocalClientId)
+        {
+            return;
+        }
         Player player = FindObjectsOfType<Player>()
             .FirstOrDefault(x => x.OwnerClientId == ownerPlayerId);
         PlayerSlot slot = FindObjectsOfType<PlayerSlot>()
             .FirstOrDefault(x => x.OwnerClientId == ownerPlayerId);
-        player.Deck.SetInitInfo(slot.DeckInitInfo);
-        player.Table.SetInitInfo(slot.TableInitInfo);
-        player.Table.FillCardsPositions();
-        player.Deck.CollectOwnedCards();
+        if (player != null && slot != null)
+        {
+            player.Table.FillCardsPositions();
+            player.Deck.FillCardsPositions();
+            player.Deck.CollectOwnedCards();
+        }
     }
 
     [ClientRpc]
@@ -184,7 +202,7 @@ public class GameController : NetworkBehaviour
         repeatView.Ready.interactable = true;
         readyCounterText.gameObject.SetActive(true);
         Player player = FindObjectsOfType<Player>().Where(x => x.IsLocalPlayer).First();
-        player.PreparePlayerToGame();
+        player.PreparePlayerToGameServerRpc();
     }
 
     [ClientRpc]

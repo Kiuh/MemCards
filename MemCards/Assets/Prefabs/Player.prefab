@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1027168887388555887}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000029802315, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: 0, y: 1.4650042, z: 0.74}
+  m_LocalPosition: {x: 0, y: 1.5, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1728,14 +1728,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3992398452304850299}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalRotation: {x: 0.16504757, y: 0, z: 0, w: 0.9862857}
   m_LocalPosition: {x: 0, y: 1.4650042, z: 0.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8956162602764680997}
   m_Father: {fileID: 6430072458188651696}
-  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 19, y: 0, z: 0}
 --- !u!114 &42415732394839422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1825,16 +1825,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8158294ba85425346928066cb29fcbc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1769618477565956834}
   virtualCamera: {fileID: 42415732394839422}
-  maxHealthPoints:
-    m_InternalValue: 100
-  maxShieldPoints:
-    m_InternalValue: 20
-  shieldDecreasing:
-    m_InternalValue: 1
+  cardsConfig:
+    AttackDamage: 30
+    TickDamage: 15
+    TickInterval: 1
+    PoisonApplying: 3
+    PoisonDecreasing: 1
+    FreezeTime: 3
+    FreezeDecreasing: 1
+    ShieldAmount: 30
+    ShieldDecreasing: 2
+    ShieldMaxAmount: 80
+    StartShieldPoints: 40
+    HealAmount: 20
+    MaxHealthPoints: 100
+    StartHealthPoints: 100
+    MaxEvadeCount: 1
+  evadeCoin:
+    m_InternalValue: 0
   table: {fileID: 2158898323652665288}
+  dynamicConfig:
+    m_InternalValue:
+      HiddenAngels: {x: 0, y: 0, z: 0}
+      ShownAngels: {x: 0, y: 0, z: 0}
   deck: {fileID: 1814120002469558666}
   EnemyPlayer: {fileID: 0}
+  playerConfig:
+    LiftY: 1
+    LiftTime: 1
+    FlyTime: 1
+    SpinSpeed: 10
+    ReturningBackTime: 1
+    WaitingTime: 1
 --- !u!114 &6756497329865932658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1869,6 +1893,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 7692647226140119079, guid: 94236212e42113649a741234ec01afd6, type: 3}
   initDeckCount: 18
+  deckConfig:
+    m_InternalValue:
+      StartDeckPosition: {fileID: 0}
+      StartDeckPositionVector: {x: 0, y: 0, z: 0}
+      StartRotationModifier: {x: 0, y: 0, z: 0}
+      ShuffleAnimationTime: 0
+      MoveToDeckAnimationTime: 0
+      YDeckGrowth: 0
+  playingCards: []
 --- !u!114 &2158898323652665288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,6 +1914,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8bf79caaac27b4b8185eb42c735446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tableConfig:
+    m_InternalValue:
+      MatrixSize: {x: 0, y: 0}
+      Shift: {x: 0, y: 0}
+      StartPoint: {fileID: 0}
+      StartPointVector: {x: 0, y: 0, z: 0}
 --- !u!1 &5271786703092061696
 GameObject:
   m_ObjectHideFlags: 0
