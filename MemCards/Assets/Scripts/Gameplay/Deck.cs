@@ -107,17 +107,16 @@ public class Deck : NetworkBehaviour
         List<CardTypeWithHash> pairs = types
             .Select(x => new CardTypeWithHash() { CardType = x, Hash = Guid.NewGuid().ToString() })
             .ToList();
-        List<CardTypeWithHash> randomCards = GenerateRandomizedDeck(pairs, playingCards.Count);
+        List<CardTypeWithHash> randomCards = GenerateRandomizedDeck(playingCards.Count)
+            .Select(x => pairs.Find(x1 => x1.CardType == x))
+            .ToList();
         for (int i = 0; i < playingCards.Count; i++)
         {
             playingCards[i].InitCard(randomCards[i].CardType, randomCards[i].Hash);
         }
     }
 
-    private List<CardTypeWithHash> GenerateRandomizedDeck(
-        List<CardTypeWithHash> sourcePairs,
-        int cardsCount
-    )
+    private List<CardType> GenerateRandomizedDeck(int cardsCount)
     {
         // TODO: implement
         return null;
