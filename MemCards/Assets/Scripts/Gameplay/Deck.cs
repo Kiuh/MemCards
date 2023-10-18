@@ -95,26 +95,32 @@ public class Deck : NetworkBehaviour
         }
     }
 
+    private struct CardTypeWithHash
+    {
+        public CardType CardType;
+        public string Hash;
+    }
+
     public void SetRandomCardValues()
     {
         IEnumerable<CardType> types = Enumerable.Range(0, 6).Select(x => (CardType)x);
-        // TODO: Implement separating logics
-
-        // TODO: Implement separating logics
-
-        // TODO: Implement separating logics
-        List<(CardType x, string)> pairs = types
-            .Select(x => (x, Guid.NewGuid().ToString()))
+        List<CardTypeWithHash> pairs = types
+            .Select(x => new CardTypeWithHash() { CardType = x, Hash = Guid.NewGuid().ToString() })
             .ToList();
-        (CardType x, string) pair = pairs.GetRandom();
+        List<CardTypeWithHash> randomCards = GenerateRandomizedDeck(pairs, playingCards.Count);
         for (int i = 0; i < playingCards.Count; i++)
         {
-            if (i % 2 == 0)
-            {
-                pair = pairs.GetRandom();
-            }
-            playingCards[i].InitCard(pair.x, pair.Item2);
+            playingCards[i].InitCard(randomCards[i].CardType, randomCards[i].Hash);
         }
+    }
+
+    private List<CardTypeWithHash> GenerateRandomizedDeck(
+        List<CardTypeWithHash> sourcePairs,
+        int cardsCount
+    )
+    {
+        // TODO: implement
+        return null;
     }
 
     private List<Vector3> cardsPositions = new();
