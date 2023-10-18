@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1027168887388555887}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000029802315, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 1.1}
+  m_LocalPosition: {x: 0, y: 0.8, z: 1.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1728,14 +1728,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3992398452304850299}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16504757, y: 0, z: 0, w: 0.9862857}
-  m_LocalPosition: {x: 0, y: 1.4650042, z: 0.74}
+  m_LocalRotation: {x: 0.2840153, y: 0, z: 0, w: 0.95881975}
+  m_LocalPosition: {x: 0, y: 1.5, z: 1.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8956162602764680997}
   m_Father: {fileID: 6430072458188651696}
-  m_LocalEulerAnglesHint: {x: 19, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 33, y: 0, z: 0}
 --- !u!114 &42415732394839422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1757,7 +1757,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 2729301610500886237}
   m_Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 80
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -1804,7 +1804,7 @@ Transform:
   m_GameObject: {fileID: 4973827532769677918}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1826,23 +1826,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1769618477565956834}
+  shower: {fileID: 0}
   virtualCamera: {fileID: 42415732394839422}
   cardsConfig:
-    AttackDamage: 30
-    TickDamage: 15
+    AttackDamage: 15
+    TickDamage: 3
     TickInterval: 1
-    PoisonApplying: 3
+    PoisonApplying: 5
     PoisonDecreasing: 1
     FreezeTime: 3
     FreezeDecreasing: 1
-    ShieldAmount: 30
+    ShieldAmount: 10
     ShieldDecreasing: 2
-    ShieldMaxAmount: 80
+    ShieldMaxAmount: 500
     StartShieldPoints: 40
-    HealAmount: 20
+    HealAmount: 8
     MaxHealthPoints: 100
     StartHealthPoints: 100
-    MaxEvadeCount: 1
+    MaxEvadeCount: 10
   evadeCoin:
     m_InternalValue: 0
   table: {fileID: 2158898323652665288}

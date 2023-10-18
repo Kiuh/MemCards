@@ -119,7 +119,12 @@ public class Deck : NetworkBehaviour
     private List<CardType> GenerateRandomizedDeck(int cardsCount)
     {
         // TODO: implement
-        return null;
+        List<CardType> cardList = new List<CardType>();
+        for (int i = 0; i < cardsCount; i++)
+        {
+            cardList.Add(CardType.Attack);
+        }
+        return cardList;
     }
 
     private List<Vector3> cardsPositions = new();
