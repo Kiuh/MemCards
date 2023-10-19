@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
+
 [Serializable]
 public struct DeckConfig : INetworkSerializable
 {
@@ -120,9 +121,16 @@ public class Deck : NetworkBehaviour
     {
         // TODO: implement
         List<CardType> cardList = new List<CardType>();
-        for (int i = 0; i < cardsCount; i++)
+        var enumSize = Enum.GetNames(typeof(CardType)).Length;
+        for (int i = 0 ; i < enumSize; i++) 
         {
-            cardList.Add(CardType.Attack);
+            cardList.Add((CardType)i);
+            cardList.Add((CardType)i);
+        }
+        for (int i = 0 ; i < cardsCount - enumSize; i++) 
+        {
+            cardList.Add((CardType)UnityEngine.Random.Range(0,enumSize-1));
+            cardList.Add(cardList[cardList.Count - 1]);
         }
         return cardList;
     }
