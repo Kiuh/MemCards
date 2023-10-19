@@ -1838,8 +1838,8 @@ MonoBehaviour:
     FreezeDecreasing: 1
     ShieldAmount: 10
     ShieldDecreasing: 2
-    ShieldMaxAmount: 500
-    StartShieldPoints: 40
+    ShieldMaxAmount: 100
+    StartShieldPoints: 0
     HealAmount: 8
     MaxHealthPoints: 100
     StartHealthPoints: 100

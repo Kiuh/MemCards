@@ -119,7 +119,6 @@ public class Deck : NetworkBehaviour
 
     private List<CardType> GenerateRandomizedDeck(int cardsCount)
     {
-        // TODO: implement
         List<CardType> cardList = new List<CardType>();
         var enumSize = Enum.GetNames(typeof(CardType)).Length;
         for (int i = 0 ; i < enumSize; i++) 
@@ -127,7 +126,7 @@ public class Deck : NetworkBehaviour
             cardList.Add((CardType)i);
             cardList.Add((CardType)i);
         }
-        for (int i = 0 ; i < cardsCount - enumSize; i++) 
+        for (int i = 0 ; i < (cardsCount - (enumSize * 2)) / 2  ; i++) 
         {
             cardList.Add((CardType)UnityEngine.Random.Range(0,enumSize-1));
             cardList.Add(cardList[cardList.Count - 1]);
