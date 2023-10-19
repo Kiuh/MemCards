@@ -5,7 +5,6 @@ using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
-
 [Serializable]
 public struct DeckConfig : INetworkSerializable
 {
@@ -119,17 +118,18 @@ public class Deck : NetworkBehaviour
 
     private List<CardType> GenerateRandomizedDeck(int cardsCount)
     {
-        List<CardType> cardList = new List<CardType>();
-        var enumSize = Enum.GetNames(typeof(CardType)).Length;
-        for (int i = 0 ; i < enumSize; i++) 
+        List<CardType> cardList = new();
+        List<CardType> list = Enum.GetValues(typeof(CardType)).Cast<CardType>().ToList();
+        foreach (CardType item in list)
         {
-            cardList.Add((CardType)i);
-            cardList.Add((CardType)i);
+            cardList.Add(item);
+            cardList.Add(item);
         }
-        for (int i = 0 ; i < (cardsCount - (enumSize * 2)) / 2  ; i++) 
+        for (int i = 0; i < (cardsCount - (list.Count() * 2)) / 2; i++)
         {
-            cardList.Add((CardType)UnityEngine.Random.Range(0,enumSize-1));
-            cardList.Add(cardList[cardList.Count - 1]);
+            CardType randomEnum = list.GetRandom();
+            cardList.Add(randomEnum);
+            cardList.Add(randomEnum);
         }
         return cardList;
     }

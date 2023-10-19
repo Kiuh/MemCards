@@ -113,4 +113,9 @@ public class ServicesController : MonoBehaviour
             Debug.LogError(ex.Message);
         }
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }

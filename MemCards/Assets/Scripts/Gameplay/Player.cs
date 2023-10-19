@@ -427,7 +427,7 @@ public class Player : NetworkBehaviour
         {
             player.SetShieldPointsServerRpc(
                 Math.Min(
-                    Math.Max(player.ShieldPoints + 20, player.ShieldPoints),
+                    Math.Max(player.ShieldPoints + cardsConfig.ShieldAmount, player.ShieldPoints),
                     cardsConfig.ShieldMaxAmount
                 )
             );
@@ -436,7 +436,7 @@ public class Player : NetworkBehaviour
         else if (CardType == CardType.Heal)
         {
             player.SetHealthPointsServerRpc(
-                Math.Min(player.HealthPoints + 20, cardsConfig.MaxHealthPoints)
+                Math.Min(player.HealthPoints + cardsConfig.HealAmount, cardsConfig.MaxHealthPoints)
             );
 
             player.PlayAnimation(CardType);

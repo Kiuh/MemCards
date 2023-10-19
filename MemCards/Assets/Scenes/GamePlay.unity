@@ -4626,7 +4626,7 @@ MonoBehaviour:
   shieldPoints: {fileID: 1324150251}
   healthPointsEnemy: {fileID: 1255117967}
   shieldPointsEnemy: {fileID: 351796120}
-  lerpSpeed: 0.3
+  lerpSpeed: 1
 --- !u!114 &933478675
 MonoBehaviour:
   m_ObjectHideFlags: 0
