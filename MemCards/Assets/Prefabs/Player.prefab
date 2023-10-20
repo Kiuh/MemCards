@@ -1728,14 +1728,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3992398452304850299}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2840153, y: 0, z: 0, w: 0.95881975}
+  m_LocalRotation: {x: 0.25038, y: 0, z: 0, w: 0.9681477}
   m_LocalPosition: {x: 0, y: 0.79999995, z: 1.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8956162602764680997}
   m_Father: {fileID: 6430072458188651696}
-  m_LocalEulerAnglesHint: {x: 33, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 29, y: 0, z: 0}
 --- !u!114 &42415732394839422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,14 +1832,14 @@ MonoBehaviour:
   virtualCamera: {fileID: 42415732394839422}
   cardsConfig:
     AttackDamage: 15
-    TickDamage: 3
+    TickDamage: 2
     TickInterval: 1
-    PoisonApplying: 5
+    PoisonApplying: 6
     PoisonDecreasing: 1
     FreezeTime: 3
     FreezeDecreasing: 1
     ShieldAmount: 10
-    ShieldDecreasing: 2
+    ShieldDecreasing: 1
     ShieldMaxAmount: 100
     StartShieldPoints: 0
     HealAmount: 8

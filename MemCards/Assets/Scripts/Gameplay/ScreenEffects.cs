@@ -33,7 +33,7 @@ public class ScreenEffects : MonoBehaviour
     private float exitTime = 1;
 
     [SerializeField]
-    private float maxCapacity = 0.5f;
+    private float maxCapacity = 0.3f;
 
     public void ShowImage(ScreenColor screenColor)
     {
