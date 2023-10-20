@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
-using Unity.Services.Authentication;
-using Unity.Services.Lobbies;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,7 +26,7 @@ public class GameController : NetworkBehaviour
     private void Awake()
     {
         Singleton = this;
-        repeatView.Leave.onClick.AddListener(async () => await LeaveToMainMenu());
+        repeatView.Leave.onClick.AddListener(() => LeaveToMainMenu());
         repeatView.Ready.onClick.AddListener(() =>
         {
             SetPlayerRestartReadyServerRpc(true);
@@ -37,15 +34,11 @@ public class GameController : NetworkBehaviour
         });
     }
 
-    public async Task LeaveToMainMenu()
+    public void LeaveToMainMenu()
     {
-        await LobbyService.Instance.RemovePlayerAsync(
-            SubNetworkManager.Singleton.JoinedLobby.Id,
-            AuthenticationService.Instance.PlayerId
-        );
         NetworkManager.Singleton.GetComponent<UnityTransport>().DisconnectLocalClient();
         NetworkManager.Singleton.Shutdown();
-        SceneManager.LoadScene("Main2");
+        SceneManager.LoadScene("Main 2");
     }
 
     private void Update()
@@ -53,7 +46,7 @@ public class GameController : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Escape");
-            _ = LeaveToMainMenu();
+            LeaveToMainMenu();
         }
         if (IsServer)
         {

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.g
       value: 0.036852706
       objectReference: {fileID: 0}
+    - target: {fileID: 654841879228462031, guid: 42922e53f4a0bea4aa957719785e879e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5462539086460949557, guid: 42922e53f4a0bea4aa957719785e879e, type: 3}
       propertyPath: looping
       value: 1

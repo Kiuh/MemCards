@@ -39,7 +39,7 @@ public class LobbyController : NetworkBehaviour
             );
             NetworkManager.Singleton.GetComponent<UnityTransport>().DisconnectLocalClient();
             NetworkManager.Singleton.Shutdown();
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("Main 2");
         });
         setReady.onClick.AddListener(() =>
         {
