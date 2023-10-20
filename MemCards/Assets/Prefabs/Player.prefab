@@ -1729,7 +1729,7 @@ Transform:
   m_GameObject: {fileID: 3992398452304850299}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2840153, y: 0, z: 0, w: 0.95881975}
-  m_LocalPosition: {x: 0, y: 1.5, z: 1.1}
+  m_LocalPosition: {x: 0, y: 0.79999995, z: 1.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1788,6 +1788,7 @@ GameObject:
   - component: {fileID: 6756497329865932658}
   - component: {fileID: 1814120002469558666}
   - component: {fileID: 2158898323652665288}
+  - component: {fileID: 7416687416804137267}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1825,6 +1826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8158294ba85425346928066cb29fcbc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectsSpawner: {fileID: 7416687416804137267}
   animator: {fileID: 1769618477565956834}
   shower: {fileID: 0}
   virtualCamera: {fileID: 42415732394839422}
@@ -1921,6 +1923,37 @@ MonoBehaviour:
       Shift: {x: 0, y: 0}
       StartPoint: {fileID: 0}
       StartPointVector: {x: 0, y: 0, z: 0}
+--- !u!114 &7416687416804137267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973827532769677918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e67570fded7844cab7313831fb38ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - CardType: 0
+    EffectPrefab: {fileID: 7024021941423776000, guid: e42a2c4cb4d67ee4cb0c669e703c3122, type: 3}
+    Duration: 4
+  - CardType: 1
+    EffectPrefab: {fileID: 6392667639832031507, guid: 25771599838ad414d9b0490352d1053d, type: 3}
+    Duration: 4
+  - CardType: 2
+    EffectPrefab: {fileID: 3098483750402253285, guid: a0124881543958145804610ecf195d32, type: 3}
+    Duration: 4
+  - CardType: 3
+    EffectPrefab: {fileID: 3475857331825152719, guid: 3293634592b28b344b5108c885d9399f, type: 3}
+    Duration: 4
+  - CardType: 4
+    EffectPrefab: {fileID: 6800534374137398845, guid: 91c8fb73cc0cd9e449a037be5f2a9ae5, type: 3}
+    Duration: 4
+  - CardType: 5
+    EffectPrefab: {fileID: 9124214902234898262, guid: 95d7e426f16e1e74bba72e6d5620ef6e, type: 3}
+    Duration: 4
 --- !u!1 &5271786703092061696
 GameObject:
   m_ObjectHideFlags: 0

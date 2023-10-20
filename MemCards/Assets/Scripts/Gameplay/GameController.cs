@@ -45,13 +45,14 @@ public class GameController : NetworkBehaviour
         );
         NetworkManager.Singleton.GetComponent<UnityTransport>().DisconnectLocalClient();
         NetworkManager.Singleton.Shutdown();
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Main2");
     }
 
     private void Update()
     {
-        if (IsLocalPlayer && Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("Escape");
             _ = LeaveToMainMenu();
         }
         if (IsServer)

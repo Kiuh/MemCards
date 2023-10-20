@@ -65,6 +65,10 @@ public struct DynamicPlayerConfig : INetworkSerializable
 public class Player : NetworkBehaviour
 {
     [SerializeField]
+    private VFXEffectsSpawner effectsSpawner;
+    public VFXEffectsSpawner EffectsSpawner => effectsSpawner;
+
+    [SerializeField]
     private Animator animator;
 
     [SerializeField]
@@ -172,6 +176,8 @@ public class Player : NetworkBehaviour
         lockDeath = value;
     }
 
+    private ScreenEffects screenEffects;
+
     public override void OnNetworkSpawn()
     {
         if (IsLocalPlayer)
@@ -179,6 +185,7 @@ public class Player : NetworkBehaviour
             PreparePlayerToGameServerRpc();
             FindObjectOfType<PlayerView>().Player = this;
             shower = FindObjectOfType<CardShower>();
+            screenEffects = FindObjectOfType<ScreenEffects>();
         }
         else
         {
@@ -391,6 +398,14 @@ public class Player : NetworkBehaviour
         );
     }
 
+    [ClientRpc]
+    private void ApplyEffectClientRpc(CardType CardType, ulong playerId)
+    {
+        FindObjectsOfType<Player>()
+            .FirstOrDefault(x => x.OwnerClientId == playerId)
+            .EffectsSpawner.SpawnEffect(CardType);
+    }
+
     [ServerRpc(RequireOwnership = false)]
     public void ApplyEffectServerRpc(CardType CardType, ulong playerId, ulong enemyID)
     {
@@ -410,18 +425,21 @@ public class Player : NetworkBehaviour
                 );
                 enemy.PlayAnimation(CardType);
             }
+            ApplyEffectClientRpc(CardType, enemyID);
         }
         else if (CardType == CardType.Freeze)
         {
             // Freeze
             enemy.SetFreezeTimeServerRpc(enemy.FreezeTime + CardsConfig.FreezeTime);
             enemy.PlayAnimation(CardType);
+            ApplyEffectClientRpc(CardType, enemyID);
         }
         else if (CardType == CardType.Poison)
         {
             // Poison
             enemy.SetPoisonTimeServerRpc(enemy.PoisonTime + CardsConfig.PoisonApplying);
             enemy.PlayAnimation(CardType);
+            ApplyEffectClientRpc(CardType, enemyID);
         }
         else if (CardType == CardType.Shield)
         {
@@ -432,19 +450,24 @@ public class Player : NetworkBehaviour
                 )
             );
             player.PlayAnimation(CardType);
+            screenEffects.ShowImage(ScreenColor.Yellow);
+            ApplyEffectClientRpc(CardType, playerId);
         }
         else if (CardType == CardType.Heal)
         {
             player.SetHealthPointsServerRpc(
                 Math.Min(player.HealthPoints + cardsConfig.HealAmount, cardsConfig.MaxHealthPoints)
             );
-
+            screenEffects.ShowImage(ScreenColor.Green);
             player.PlayAnimation(CardType);
+            ApplyEffectClientRpc(CardType, playerId);
         }
         else if (CardType == CardType.Evade)
         {
+            screenEffects.ShowImage(ScreenColor.Orange);
             player.SetEvadeCoinServerRpc(true);
             player.PlayAnimation(CardType);
+            ApplyEffectClientRpc(CardType, playerId);
         }
     }
 
